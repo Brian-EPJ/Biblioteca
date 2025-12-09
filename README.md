@@ -1,6 +1,6 @@
 # Biblioteca 📚
 
-Aplicación web de gestión de autores y libros, desarrollada con Spring Boot, Thymeleaf, JPA y MySQL. Permite crear, leer, editar y s y sus libros asociados mediante una interfaz web.
+Aplicación web de gestión de autores y libros, desarrollada con Spring Boot, Thymeleaf, JPA y MySQL. Permite crear, leer, editar autores y sus libros asociados mediante una interfaz web.
 
 ---
 
