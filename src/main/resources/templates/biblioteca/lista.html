@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light p-4">
+
+<div class="container">
+    <h1 class="mb-4 text-center">📚 Biblioteca</h1>
+
+    <div class="mb-3 text-end">
+        <a href="/biblioteca/autores/nuevo" class="btn btn-primary">➕ Nuevo Autor</a>
+        <a href="/biblioteca/libros/nuevo" class="btn btn-success">➕ Nuevo Libro</a>
+    </div>
+
+    <!-- ===== AUTORES ===== -->
+    <h2 class="mt-4">Autores</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="autor : ${autores}">
+            <td th:text="${autor.id}"></td>
+            <td th:text="${autor.nombre}"></td>
+            <td>
+                <a th:href="@{'/biblioteca/autores/editar/' + ${autor.id}}" class="btn btn-warning btn-sm">✏️ Editar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- ===== LIBROS ===== -->
+    <h2 class="mt-5">Libros</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="libro : ${libros}">
+            <td th:text="${libro.id}"></td>
+            <td th:text="${libro.titulo}"></td>
+            <td th:text="${libro.autor != null ? libro.autor.nombre : 'Sin autor'}"></td>
+            <td>
+                <a th:href="@{'/biblioteca/libros/eliminar/' + ${libro.id}}" class="btn btn-danger btn-sm">🗑 Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
